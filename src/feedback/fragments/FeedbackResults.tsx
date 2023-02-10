@@ -6,7 +6,7 @@ import {
   FullBleedContainer,
   FullBleedLayout,
   GradientBackground,
-} from "~/ui-components";
+} from "@modules/ui-components";
 
 import { RatingsHeader } from "../components";
 import { FeedbackApi } from "../services";

@@ -14,7 +14,7 @@ module.exports = {
     sourceType: "module",
     project: ["./tsconfig.json"],
   },
-  plugins: ["react", "prettier", "simple-import-sort"],
+  plugins: ["react", "prettier", "simple-import-sort", "jest-dom"],
   rules: {
     "prettier/prettier": "error",
     "simple-import-sort/imports": [
@@ -31,7 +31,7 @@ module.exports = {
           // Side effect imports.
           ["^\\u0000"],
           // Imports from other modules.
-          ["^~/?"],
+          ["^@modules/?"],
           // Parent imports. Put `..` last.
           ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
           // Other relative imports. Put same-folder imports and `.` last.

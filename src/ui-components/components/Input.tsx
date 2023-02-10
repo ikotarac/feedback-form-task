@@ -47,6 +47,8 @@ export const Input: FC<InputProps> = ({
       <StyledInput
         {...otherProps}
         aria-label={name}
+        aria-invalid={error !== undefined}
+        aria-errormessage={`${name}-error`}
         placeholder={name}
         id={name}
         onChange={onChange}

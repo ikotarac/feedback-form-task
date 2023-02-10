@@ -4,3 +4,4 @@ export * from "./GradientBackground";
 export * from "./Input";
 export * from "./InputContainer";
 export * from "./TextArea";
+export * from "./ThemeProvider";

@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
-import { FeedbackForm, FeedbackResults } from "~/feedback";
+import { FeedbackForm, FeedbackResults } from "@modules/feedback";
+import { ThemeProvider } from "@modules/ui-components";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -35,38 +36,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const theme = {
-  colors: {
-    danger: "#B62121",
-    border: "#768097",
-    primary: "#0c1142",
-  },
-
-  breakpoints: {
-    mobile: "760px",
-  },
-};
-
-declare module "styled-components" {
-  export interface DefaultTheme {
-    colors: {
-      danger: string;
-      border: string;
-      primary: string;
-    };
-
-    breakpoints: {
-      mobile: string;
-    };
-  }
-}
-
-// t his   is the entry point in the applic  ation
-// naming is analogous to main function in C / main method in Java
+// this is the entry point in the application
+// naming is analogous to main function in C and main method in Java
 export const Main: FC = () => {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider>
         <GlobalStyle />
         <Routes>
           <Route element={<FeedbackForm />} path="/" />

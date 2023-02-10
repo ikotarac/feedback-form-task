@@ -6,7 +6,7 @@ import {
 } from "react-hook-form";
 import styled from "styled-components";
 
-import { InputContainer } from "~/ui-components";
+import { InputContainer } from "@modules/ui-components";
 
 import { ratingOptions } from "../models";
 
@@ -30,7 +30,7 @@ const StyledRatingFieldset = styled.fieldset`
   &:has(input:checked) svg,
   &:has(input:focus) svg,
   &:has(svg:hover) svg {
-    fill: orange;
+    fill: ${({ theme }) => theme.colors.accent};;
   }
 
   div:has(input:checked) ~ div svg,
@@ -42,7 +42,7 @@ const StyledRatingFieldset = styled.fieldset`
   div:has(input:checked) svg,
   div:has(input:focus) svg,
   div:hover svg {
-    fill: orange !important;
+    fill: ${({ theme }) => theme.colors.accent}; !important;
   }
 `;
 
@@ -80,15 +80,18 @@ export const StarRatingInput: FC<StarRatingInputProps> = ({
 
   return (
     <InputContainer className={className} name={name} error={error}>
-      <StyledRatingFieldset>
+      <StyledRatingFieldset
+        role="radiogroup"
+        aria-invalid={error !== undefined}
+        aria-errormessage={`${name}-error`}
+      >
         <legend>How would you rate our product?</legend>
         {ratingOptions.map((option) => {
-          const optionId = `${option} option`;
-          const optionString = `${option}`;
+          const optionString = `${option} star`;
 
           return (
             <StyledStarContainerDiv key={option}>
-              <label htmlFor={optionId}>
+              <label htmlFor={optionString}>
                 <Star />
               </label>
               <input
@@ -97,7 +100,7 @@ export const StarRatingInput: FC<StarRatingInputProps> = ({
                 value={optionString}
                 name={name}
                 aria-label={optionString}
-                id={optionId}
+                id={optionString}
                 checked={value === optionString}
                 onChange={onChange}
               />

@@ -8,9 +8,9 @@ module.exports = {
   },
   devtool: "inline-source-map",
   resolve: {
-    extensions: [".tsx", ".ts"],
+    extensions: [".tsx", ".ts", ".js"],
     alias: {
-      "~": path.resolve(__dirname, "src"),
+      "@modules": path.resolve(__dirname, "src"),
     },
   },
   devServer: {

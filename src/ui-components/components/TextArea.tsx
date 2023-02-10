@@ -47,6 +47,8 @@ export const TextArea: FC<TextAreaProps> = ({
       <StyledTextArea
         {...otherProps}
         aria-label={name}
+        aria-invalid={error !== undefined}
+        aria-errormessage={`${name}-error`}
         placeholder={name}
         id={name}
         onChange={onChange}

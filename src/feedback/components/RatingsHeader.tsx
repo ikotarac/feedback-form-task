@@ -1,7 +1,7 @@
 import React, { FC, useMemo } from "react";
 import styled from "styled-components";
 
-import { BarChart } from "~/ui-components";
+import { BarChart } from "@modules/ui-components";
 
 import { RatingOption } from "../models";
 import { RatingDistribution } from "../services";
@@ -32,7 +32,7 @@ const StyledAverageRatingContainerDiv = styled.div`
 `;
 
 const StyledStar = styled(Star)`
-  fill: orange;
+  fill: ${({ theme }) => theme.colors.accent};
   width: 20px;
   height: 20px;
 `;

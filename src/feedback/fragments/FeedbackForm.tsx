@@ -3,7 +3,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import { GradientBackground, Input, TextArea } from "~/ui-components";
+import { GradientBackground, Input, TextArea } from "@modules/ui-components";
 
 import { StarRatingInput } from "../components";
 import { Feedback } from "../models";
@@ -76,7 +76,7 @@ const StyledSubmitButton = styled.button`
   background-color: ${({ theme: { colors } }) => colors.primary};
   border: none;
   border-radius: 4px;
-  color: orange;
+  color: ${({ theme }) => theme.colors.accent};
   font-weight: bold;
   font-size: 16px;
 
@@ -88,7 +88,7 @@ const StyledSubmitButton = styled.button`
   }
 `;
 
-// todo: sanitization!
+// todo: check if sanitization is required
 export const FeedbackForm: FC = () => {
   const methods = useForm<Feedback>();
   const navigate = useNavigate();

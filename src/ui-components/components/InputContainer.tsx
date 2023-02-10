@@ -9,9 +9,9 @@ const StyledInputContainerDiv = styled.div<{ hasError: boolean }>`
   ${({ hasError, theme }) =>
     hasError &&
     css`
-      & input,
-      & fieldset,
-      & textarea {
+      input,
+      fieldset,
+      textarea {
         border-color: ${theme.colors.danger};
       }
     `}
@@ -29,6 +29,7 @@ const StyledErrorSpan = styled.p`
 `;
 
 interface InputContainerProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string;
   error: FieldError | undefined;
 }
 
@@ -45,7 +46,7 @@ export const InputContainer: FC<InputContainerProps> = ({
       {children}
       {hasError && (
         <label htmlFor={name}>
-          <StyledErrorSpan role="alert">
+          <StyledErrorSpan role="alert" id={`${name}-error`}>
             {error.type === "required"
               ? "This field is required."
               : error.message}
