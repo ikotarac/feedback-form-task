@@ -94,7 +94,6 @@ export const RatingsHeader: FC<RatingsHeaderProps> = ({ ratings }) => {
           ).toFixed(0)} %`
         }
       />
-      <script type="text/javascript">{`alert("XSS")`}</script>
     </StyledHeaderDiv>
   );
 };
