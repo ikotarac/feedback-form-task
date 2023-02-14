@@ -97,7 +97,7 @@ export const StarRatingInput: FC<StarRatingInputProps> = ({
               <input
                 className="screen-reader-only"
                 type="radio"
-                value={optionString}
+                value={option}
                 name={name}
                 aria-label={optionString}
                 id={optionString}
